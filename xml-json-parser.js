@@ -477,13 +477,20 @@ module.exports = function X2JS(config) {
     }
 
     this.parseXmlString = function(xmlDocStr) {
-        var isIEParser = window.ActiveXObject || "ActiveXObject" in window;
+        var isNodeJS = (typeof window === 'undefined') || (window === false);
+        var isIEParser = (!isNodeJS) && (window.ActiveXObject || "ActiveXObject" in window);
         if (xmlDocStr === undefined) {
             return null;
         }
         var xmlDoc;
-        if (window.DOMParser) {
-            var parser=new window.DOMParser();
+        if (isNodeJS || window.DOMParser) {
+            var parser;
+            if (isNodeJS) {
+                var DOMParser = require('xmldom').DOMParser;
+                parser = new DOMParser;
+            } else {
+                parser = new window.DOMParser();
+            }
             var parsererrorNS = null;
             // IE9+ now is here
             if(!isIEParser) {
