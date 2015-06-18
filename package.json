@@ -1,21 +1,24 @@
 {
   "name": "xml-json-parser",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "XML to JSON, JSON to XML transformer based on https://github.com/abdmob/x2js, was modified for npm usage",
   "main": "xml-json-parser.js",
   "repository": {
     "type": "git",
-    "url": "https://jekamoroz@github.com/jekamoroz/xml-json-parser.git"
+    "url": "https://jekamoroz@github.com/pearmaster/xml-json-parser.git"
   },
   "keywords": [
     "xml",
     "json",
     "parser"
   ],
-  "author": "JekaMoroz",
+  "author": "Jacob Brunson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jekamoroz/xml-json/issues"
+    "url": "https://github.com/pearmaster/xml-json/issues"
   },
-  "homepage": "https://github.com/jekamoroz/xml-json-parser"
+  "homepage": "https://github.com/pearmaster/xml-json-parser",
+  "dependencies": {
+    "xmldom": "^0.1.19"
+  }
 }
